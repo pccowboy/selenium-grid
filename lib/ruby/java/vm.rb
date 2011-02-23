@@ -16,6 +16,7 @@ module Java
         else
           command << "&"
           command << " echo $! > #{options[:pid_file]}" if options[:pid_file]
+          command.unshift("nohup")
         end
       else
         command << "; echo $! > #{options[:pid_file]}" if options[:pid_file]
